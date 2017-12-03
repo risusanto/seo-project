@@ -18,7 +18,7 @@ class Result extends MY_Controller {
         }
         $stopWordrm = new WordPreprocessing();
         $documents = $this->Document_m->get();
-        $_terms = $this->input->get('q');
+        $_terms = $stopWordrm->removeStopWords($this->input->get('q'));
         
         $terms = $stopWordrm->wordTokenizing($_terms);
         
